@@ -1,7 +1,6 @@
 // pages/index.js
 "use client";
 import Head from 'next/head';
-import { useState } from 'react';
 import HowWork from './components/HowWork';
 import PricingSection from './components/PricingSection';
 import Testimonials from './components/Testimonial';
