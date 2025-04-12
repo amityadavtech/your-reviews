@@ -1,4 +1,5 @@
 // pages/index.js
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Head from 'next/head';
 import { useState } from 'react';
@@ -44,7 +45,7 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans text-gray-800">
       <Head>
-        <title>[CompanyName] - Premium Review Services for Your Business</title>
+        <title>yourcomany - Premium Review Services for Your Business</title>
         <meta name="description" content="Boost your online credibility with genuine reviews. Trusted by thousands of businesses worldwide." />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -170,7 +171,10 @@ export default function Home() {
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
-                  <p className="text-gray-700 text-base mb-2">"This service completely transformed my business. The authentic reviews helped me gain trust and attract more customers. Highly recommended!"</p>
+                  <p className="text-gray-700 text-base mb-2">
+                    &quot;This service completely transformed my business. The authentic reviews helped me gain trust and attract more customers. Highly recommended! ...&quot;
+                  </p>
+
                   <div className="flex items-center">
                     <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
                       <span className="text-blue-600 font-semibold">JD</span>
@@ -386,7 +390,7 @@ export default function Home() {
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
-              <p className="text-gray-700 mb-6">"[CompanyName] transformed our online presence. The reviews were genuine and helped increase our sales by 30% in just one month. Incredible service!"</p>
+              <p className="text-gray-700 mb-6"> &quot;yourcomany transformed our online presence. The reviews were genuine and helped increase our sales by 30% in just one month. Incredible service! ...&quot;</p>
               <div className="flex items-center">
                 <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
                   <span className="text-blue-600 font-semibold">SM</span>
@@ -415,7 +419,10 @@ export default function Home() {
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
-              <p className="text-gray-700 mb-6">"As a new restaurant owner, I was struggling to get noticed. The reviews from [CompanyName] helped establish our credibility and now we're fully booked most nights!"</p>
+              <p className="text-gray-700 mb-6">
+                &quot;yourcomany transformed our online presence. The reviews were genuine and helped increase our sales by 30% in just one month. Incredible service!&quot;
+              </p>
+
               <div className="flex items-center">
                 <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
                   <span className="text-blue-600 font-semibold">MR</span>
@@ -444,7 +451,7 @@ export default function Home() {
                   <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
               </div>
-              <p className="text-gray-700 mb-6">"The quality of reviews surpassed my expectations. Each review was well-written and felt authentic. Our app downloads increased by 45% after using their service."</p>
+              <p className="text-gray-700 mb-6">&quot;The quality of reviews surpassed my expectations. Each review was well-written and felt authentic. Our app downloads increased by 45% after using their service. ...&quot;</p>
               <div className="flex items-center">
                 <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
                   <span className="text-blue-600 font-semibold">AP</span>
@@ -510,7 +517,7 @@ export default function Home() {
                   </div>
                   <div>
                     <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">support@[CompanyName].co.in</p>
+                    <p className="text-gray-600">support@yourcomany.co.in</p>
                   </div>
                 </div>
                 <div className="flex items-start">
@@ -585,7 +592,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
-              <h3 className="text-2xl font-bold text-white mb-4">[CompanyName]</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">yourcomany</h3>
               <p className="text-gray-300 mb-4">Boosting your online reputation with genuine reviews since 2015.</p>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-300 hover:text-white">
@@ -639,7 +646,7 @@ export default function Home() {
           </div>
         </div>
         <div className="text-center text-gray-400 mt-8">
-          <p>&copy; 2025 [CompanyName]. All rights reserved.</p>
+          <p>&copy; 2025 yourcomany. All rights reserved.</p>
         </div>
       </footer>
     </div>
