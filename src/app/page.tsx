@@ -11,13 +11,11 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 
 export default function Home() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Define setMobileMenuOpen here
 
     const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
       behavior: 'smooth',
     });
-    setMobileMenuOpen(false); // Close the mobile menu after scrolling
     };
   return (
     <div className="min-h-screen font-sans text-gray-800">
