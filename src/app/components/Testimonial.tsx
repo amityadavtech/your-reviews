@@ -32,9 +32,9 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
             <p className="text-gray-700 mb-6">
-              "BeingxBot transformed our online presence. The reviews were
+              {`"BeingxBot transformed our online presence. The reviews were
               genuine and helped increase our sales by 30% in just one month.
-              Incredible service!"
+              Incredible service!"`}
             </p>
             <div className="flex items-center">
               <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
@@ -55,8 +55,8 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
             <p className="text-gray-700 mb-6">
-              "Working with BeingxBot was a game-changer! Their solutions
-              helped us grow our business beyond expectations."
+              {`"Working with BeingxBot was a game-changer! Their solutions
+              helped us grow our business beyond expectations."`}
             </p>
             <div className="flex items-center">
               <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
@@ -77,8 +77,8 @@ const Testimonials: React.FC = () => {
               ))}
             </div>
             <p className="text-gray-700 mb-6">
-              "Our experience with BeingxBot was fantastic! Their team is
-              professional, responsive, and truly dedicated to results."
+              {`"Our experience with BeingxBot was fantastic! Their team is
+              professional, responsive, and truly dedicated to results."`}
             </p>
             <div className="flex items-center">
               <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">

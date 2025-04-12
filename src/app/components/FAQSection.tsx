@@ -47,7 +47,7 @@ const FAQSection: React.FC = () => {
                 className="w-full flex justify-between items-center p-4 text-left focus:outline-none bg-gray-50 hover:bg-gray-100"
                 onClick={() => toggleAccordion(index)}
               >
-                <span className="font-medium text-lg text-gray-900">{faq.question}</span>
+                <span className="font-medium text-lg text-blue-600">{faq.question}</span>
                 <svg
                   className={`h-6 w-6 text-gray-500 transform transition-transform duration-200 ${
                     activeAccordion === index ? "rotate-180" : "rotate-0"
