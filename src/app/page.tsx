@@ -1,8 +1,12 @@
 // pages/index.js
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import Head from 'next/head';
 import { useState } from 'react';
+import HowWork from './components/HowWork';
+import PricingSection from './components/PricingSection';
+import Testimonials from './components/Testimonial';
+import FAQSection from './components/FAQSection';
+import ContactSection from './components/ContactSection';
 
 export default function Home() {
   // Ensure activeAccordion can be a number or null
@@ -45,7 +49,7 @@ export default function Home() {
   return (
     <div className="min-h-screen font-sans text-gray-800">
       <Head>
-        <title>yourcomany - Premium Review Services for Your Business</title>
+        <title> - Premium Review Services for Your Business</title>
         <meta name="description" content="Boost your online credibility with genuine reviews. Trusted by thousands of businesses worldwide." />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,48 +58,21 @@ export default function Home() {
       {/* Navigation */}
       <nav className="bg-white fixed w-full z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <span className="text-2xl font-bold text-blue-600">[YourCompanyName]</span>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-6">
-              {[
-                { label: "Home", id: "hero" },
-                { label: "How It Works", id: "how-it-works" },
-                { label: "Pricing", id: "pricing" },
-                { label: "Testimonials", id: "testimonials" },
-                { label: "FAQ", id: "faq" },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors"
-                >
-                  {item.label}
-                </button>
-              ))}
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition"
-              >
-                Contact Us
-              </button>
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <span className="text-2xl font-bold text-blue-600">YourCompany</span>
             </div>
-
-            {/* Mobile Menu Toggle */}
+            <div className="hidden md:flex items-center space-x-6">
+              <button onClick={() => scrollToSection('hero')} className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Home</button>
+              <button onClick={() => scrollToSection('how-it-works')} className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">How It Works</button>
+              <button onClick={() => scrollToSection('pricing')} className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Pricing</button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Testimonials</button>
+              <button onClick={() => scrollToSection('faq')} className="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">FAQ</button>
+              <button onClick={() => scrollToSection('contact')} className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact Us</button>
+            </div>
             <div className="md:hidden flex items-center">
-              <button
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="text-gray-700 hover:text-blue-600 focus:outline-none"
-                aria-label="Toggle menu"
-              >
-                <svg
-                  className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-gray-700 hover:text-blue-600 focus:outline-none">
+                <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   {mobileMenuOpen ? (
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                   ) : (
@@ -107,41 +84,26 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg rounded-b-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
-              {[
-                { label: "Home", id: "hero" },
-                { label: "How It Works", id: "how-it-works" },
-                { label: "Pricing", id: "pricing" },
-                { label: "Testimonials", id: "testimonials" },
-                { label: "FAQ", id: "faq" },
-                { label: "Contact Us", id: "contact", isCTA: true },
-              ].map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition 
-              ${item.isCTA
-                      ? "bg-blue-600 text-white hover:bg-blue-700"
-                      : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
-                    }`}
-                >
-                  {item.label}
-                </button>
-              ))}
+              <button onClick={() => scrollToSection('hero')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Home</button>
+              <button onClick={() => scrollToSection('how-it-works')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">How It Works</button>
+              <button onClick={() => scrollToSection('pricing')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Pricing</button>
+              <button onClick={() => scrollToSection('testimonials')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">Testimonials</button>
+              <button onClick={() => scrollToSection('faq')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md">FAQ</button>
+              <button onClick={() => scrollToSection('contact')} className="block w-full text-left px-3 py-2 text-base font-medium text-gray-700 hover:bg-blue-600 hover:text-white  rounded-md">Contact Us</button>
             </div>
           </div>
         )}
       </nav>
 
-
       {/* Hero Section */}
       <section id="hero" className="pt-24 pb-16 md:py-32 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="md:flex md:items-center md:justify-between">
-            <div className="md:w-1/2 md:pr-10">
+          <div className="md:flex md:items-center md:justify-between ">
+            <div className="md:w-1/2 md:pr-10 mb-6">
               <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">Boost Your Online Reputation with Genuine Reviews</h1>
               <p className="text-lg md:text-xl text-blue-100 mb-8">Get authentic reviews for your business from real users. Enhance your online credibility and attract more customers.</p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -149,7 +111,7 @@ export default function Home() {
                 <button onClick={() => scrollToSection('how-it-works')} className="bg-transparent border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-200">Learn More</button>
               </div>
             </div>
-            <div className="hidden md:block md:w-1/2">
+            <div className=" md:w-1/2">
               <div className="relative">
                 <div className="absolute -left-4 -top-4 bg-blue-400 rounded-full w-20 h-20 opacity-20"></div>
                 <div className="absolute -right-4 -bottom-4 bg-blue-400 rounded-full w-12 h-12 opacity-20"></div>
@@ -171,10 +133,7 @@ export default function Home() {
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   </div>
-                  <p className="text-gray-700 text-base mb-2">
-                    &quot;This service completely transformed my business. The authentic reviews helped me gain trust and attract more customers. Highly recommended! ...&quot;
-                  </p>
-
+                  <p className="text-gray-700 text-base mb-2">"This service completely transformed my business. The authentic reviews helped me gain trust and attract more customers. Highly recommended!"</p>
                   <div className="flex items-center">
                     <div className="bg-blue-100 rounded-full w-10 h-10 flex items-center justify-center mr-3">
                       <span className="text-blue-600 font-semibold">JD</span>
@@ -192,308 +151,28 @@ export default function Home() {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">How It Works</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Our simple process delivers authentic reviews that enhance your online presence</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-10">
-            <div className="bg-white p-8 rounded-lg shadow-md relative">
-              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 transform -translate-x-1/2">1</div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4 text-center">Choose Your Package</h3>
-              <p className="text-gray-600 text-center">Select from our range of review packages tailored to your business needs and budget.</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md relative">
-              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 transform -translate-x-1/2">2</div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4 text-center">Provide Details</h3>
-              <p className="text-gray-600 text-center">Share information about your product or service to help our reviewers create authentic feedback.</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-md relative">
-              <div className="bg-blue-600 text-white w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold absolute -top-6 left-1/2 transform -translate-x-1/2">3</div>
-              <h3 className="text-xl font-bold text-gray-900 mt-6 mb-4 text-center">Watch Reviews Roll In</h3>
-              <p className="text-gray-600 text-center">Sit back as genuine reviews start appearing, boosting your credibility and online presence.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HowWork />
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Choose the perfect package for your business needs</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Basic Plan */}
-            <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-              <div className="p-6 bg-gray-50 border-b border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 text-center">Basic</h3>
-                <div className="mt-4 text-center">
-                  <span className="text-4xl font-bold text-gray-900">$99</span>
-                  <span className="text-gray-600 ml-2">/ month</span>
-                </div>
-              </div>
-              <div className="p-6">
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">10 Genuine Reviews</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Delivery within 7 days</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Basic review customization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Email support</span>
-                  </li>
-                </ul>
-                <button className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Select Plan</button>
-              </div>
-            </div>
 
-            {/* Premium Plan */}
-            <div className="bg-white border-2 border-blue-600 rounded-lg shadow-lg overflow-hidden transform md:scale-105 transition-all duration-300 hover:shadow-xl">
-              <div className="p-1 bg-blue-600">
-                <p className="text-white text-xs text-center font-bold uppercase tracking-wide">Most Popular</p>
-              </div>
-              <div className="p-6 bg-gray-50 border-b border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 text-center">Premium</h3>
-                <div className="mt-4 text-center">
-                  <span className="text-4xl font-bold text-gray-900">$249</span>
-                  <span className="text-gray-600 ml-2">/ month</span>
-                </div>
-              </div>
-              <div className="p-6">
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">30 Genuine Reviews</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Delivery within 5 days</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Advanced review customization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Priority support</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Response management</span>
-                  </li>
-                </ul>
-                <button className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Select Plan</button>
-              </div>
-            </div>
-
-            {/* Enterprise Plan */}
-            <div className="bg-white border border-gray-200 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
-              <div className="p-6 bg-gray-50 border-b border-gray-200">
-                <h3 className="text-2xl font-bold text-gray-900 text-center">Enterprise</h3>
-                <div className="mt-4 text-center">
-                  <span className="text-4xl font-bold text-gray-900">$499</span>
-                  <span className="text-gray-600 ml-2">/ month</span>
-                </div>
-              </div>
-              <div className="p-6">
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">75 Genuine Reviews</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Delivery within 3 days</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Full review customization</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Dedicated account manager</span>
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="h-6 w-6 text-green-500 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span className="text-gray-700">Full analytics dashboard</span>
-                  </li>
-                </ul>
-                <button className="mt-8 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200">Select Plan</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+      <PricingSection />
       {/* Testimonials Section */}
+      <Testimonials/>
+     
+      {/* FAQ Section */}
+      <FAQSection/>
    
 
-      {/* FAQ Section */}
-      <section id="faq" className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">Everything you need to know about our services</p>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg overflow-hidden">
-                <button
-                  className="w-full flex justify-between items-center p-4 text-left focus:outline-none bg-gray-50 hover:bg-gray-100"
-                  onClick={() => toggleAccordion(index)}
-                >
-                  <span className="font-medium text-lg text-gray-900">{faq.question}</span>
-                  <svg
-                    className={`h-6 w-6 text-gray-500 transform ${activeAccordion === index ? 'rotate-180' : 'rotate-0'} transition-transform duration-200`}
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                  >
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </button>
-                {activeAccordion === index && (
-                  <div className="p-4 bg-white">
-                    <p className="text-gray-700">{faq.answer}</p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Contact Form */}
-      <section id="contact" className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-              <p className="text-xl text-gray-600 mb-6">Have questions or need customized solutions? Contact us today.</p>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
-                    <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">Email</h3>
-                    <p className="text-gray-600">support@yourcomany.co.in</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
-                    <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+91 1234567890</p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
-                    <svg className="h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-medium text-gray-900">Business Hours</h3>
-                    <p className="text-gray-600">Monday - Friday: 9am - 6pm IST</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-              <form>
-                <div className="mb-4">
-                  <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Your email"
-                  />
-                </div>
-                <div className="mb-6">
-                  <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                  <textarea
-                    id="message"
-                    rows={4}  // This is a number, which is the expected type
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
-                    placeholder="Your message"
-                  />
+      <ContactSection/>
 
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition-colors duration-200"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-2 md:col-span-1">
-              <h3 className="text-2xl font-bold text-white mb-4">yourcomany</h3>
+              <h3 className="text-2xl font-bold text-white mb-4"></h3>
               <p className="text-gray-300 mb-4">Boosting your online reputation with genuine reviews since 2015.</p>
               <div className="flex space-x-4">
                 <a href="#" className="text-gray-300 hover:text-white">
@@ -525,29 +204,18 @@ export default function Home() {
                 <li><a href="#" className="hover:text-white">Contact</a></li>
               </ul>
             </div>
-            <div className="col-span-2 md:col-span-1 bg-gray-800 p-6 rounded-lg">
+            <div className="col-span-2 md:col-span-1">
               <h3 className="text-2xl font-bold text-white mb-4">Subscribe</h3>
-              <p className="text-gray-300 mb-6">Get the latest updates and offers directly in your inbox.</p>
-              <form action="#" method="POST" className="flex flex-col sm:flex-row">
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className="px-4 py-2 rounded-l-lg w-full sm:w-auto text-gray-800 mb-4 sm:mb-0 sm:mr-4"
-                />
-                <button
-                  type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600 w-full sm:w-auto"
-                >
-                  Subscribe
-                </button>
+              <p className="text-gray-300 mb-4">Get the latest updates and offers directly in your inbox.</p>
+              <form action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email" className="px-4 py-2 rounded-l-lg text-gray-800" />
+                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-600">Subscribe</button>
               </form>
             </div>
-
           </div>
         </div>
         <div className="text-center text-gray-400 mt-8">
-          <p>&copy; 2025 yourcomany. All rights reserved.</p>
+          <p>&copy; 2025 . All rights reserved.</p>
         </div>
       </footer>
     </div>
